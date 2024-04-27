@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>21053229</title>
+<body background="bg3lab3.png">
+
+    <style>
+          table, tr, td {
+        border: 1px solid;
+        border-collapse: collapse;
+        margin: 5px;
+    }
+
+    td {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    </style>
+
+  </head>
+  <body>
+<center>
+<font color = "Maroon" face = "courier">
+    <h1><b><u>Bio-data Form</u></b></h1>
+    <hr>
+    <b>Please fill out the form given below and make sure the provided information is correct to the best of your 
+knowledge. You will be held responsible for any discrepancies found in the provided information. Click on the submit button to submit the final form.
+ Thank you for your time and contribution.<b>
+    <hr/>
+    <br><br><br>
+    <form method="post" action="thanks.html">
+      <table>
+        <tr>
+          <td>
+            <label for="sname">Name</label>
+          </td>
+          <td>
+            <input type="text" size="20" maxlength="30">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="address">Address</label>
+          </td>
+          <td style="padding-left:10px; padding-right: 10px;">
+            <textarea
+              name="address"
+              rows="3"
+              cols="30"
+              placeholder="Enter your address here"
+            ></textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="password">Password</label>
+          </td>
+          <td>
+            <input type="password" size="20" maxlength="30">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="Date">Date of Birth</label>
+          </td>
+          <td>
+            <input type="date">
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="gender">Gender</label>
+          </td>
+          <td>
+            <input type="radio" name="gender" value="Female"> Male<br>
+            <input type="radio" name="gender" value="Male"> Female 
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <label for="hobbies">Hobbies</label>
+            </td>
+            <td>
+              <input type="checkbox" name="hobby1"> Writing<br>
+              <input type="checkbox" name="hobby2"> Reading <br>
+              <input type="checkbox" name="hobby3"> Cooking <br>
+              <input type="checkbox" name="hobby4"> Singing <br>
+              <input type="checkbox" name="hobby5"> Codiing <br>
+            </td>
+          </tr>
+          
+        <tr>
+            <td>
+              <label for="grad" style="padding-left:10px; padding-right: 10px;">Year of Graduation</label>
+            </td>
+            <td>
+                <select name="grad" size 4>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+            </td>
+          </tr>
+          
+        <tr>
+            <td>
+              <label for="email">Email</label>
+            </td>
+            <td>
+              <input type="text" size="20" maxlength="70">
+            </td>
+          </tr>
+      </table>
+      <br>
+      <input type="submit" value="Submit" style="padding: 5px; padding-left:15px; padding-right: 15px; margin-right: 10px ;">
+      <input type="reset" value="Reset" style="padding: 5px; padding-left:15px; padding-right: 15px;">
+    </form>
+</center>
+  </body>
+</html>
