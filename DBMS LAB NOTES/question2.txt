@@ -1,0 +1,29 @@
+DECLARE
+
+given_sal NUMBER;
+CURSOR CSR(salary1 Employee3229.salary%TYPE) IS SELECT lastname, firstname, salary, hire_date FROM Employee3229 WHERE salary > given_sal;
+lastname1 Employee3229.lastname%TYPE;
+firstname1 Employee3229.firstname%TYPE;
+salary1 Employee3229.salary%TYPE;
+hire_date1 Employee3229.hire_date%TYPE;
+
+BEGIN
+
+given_sal:= &given_sal;
+OPEN CSR(given_sal);
+IF CSR %ISOPEN THEN
+LOOP 
+FETCH CSR INTO lastname1, firstname1, salary1, hire_date1;
+EXIT when CSR%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE('Last Name: '|| lastname1) ;
+DBMS_OUTPUT.PUT_LINE('First Name: '|| firstname1) ;
+DBMS_OUTPUT.PUT_LINE('Salary : '|| salary1) ;
+DBMS_OUTPUT.PUT_LINE('Hire Date : '|| hire_date1) ;
+
+END LOOP;
+END IF;
+
+CLOSE CSR;
+
+END;
+/

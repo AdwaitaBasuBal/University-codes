@@ -1,0 +1,7 @@
+DECLARE
+  first_name VARCHAR2(20) := '&first_name_input';
+  last_name VARCHAR2(20) := '&last_name_input';
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('Full Name: ' || last_name || ', ' || first_name);
+END;
+/

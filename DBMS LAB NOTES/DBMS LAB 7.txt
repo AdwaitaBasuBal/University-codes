@@ -1,0 +1,8 @@
+create table Buy(Buy_ID varchar2(10) PRIMARY KEY,
+ Quantity int,
+ adate date,
+ Customer_ID int,
+ Constraint FK_Customer_ID FOREIGN KEY (Customer_ID) REFERENCES Customer(Customer_ID),
+ Product_ID int, 
+constraint FK_Product_ID FOREIGN KEY (Product_ID) REFERENCES Product(Product_ID));
+_________________________________________________________________________________________________________

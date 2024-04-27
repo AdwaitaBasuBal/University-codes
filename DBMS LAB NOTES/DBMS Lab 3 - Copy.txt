@@ -1,0 +1,55 @@
+CREATE TABLE Deposit_21053229(
+actno varchar2(5),
+cname varchar2(20),
+bname varchar2(20),
+amount number(8,2),
+adate date
+)
+
+CREATE TABLE branch_21053229(
+bname varchar2(20),
+city varchar2(20)
+)
+
+CREATE TABLE customer_21053229(
+cname varchar2(20),
+city varchar2(20)
+)
+
+CREATE TABLE borrow_21053229(
+loanno varchar2(20),
+cname varchar2(20),
+bname varchar2(20),
+amount number(8,2)
+)
+
+--------------------------------------------------------------------------------------
+INSERT INTO deposit_21053229 VALUES(105, 'Sandip', 'Karolbagh', 2000.00, '03-31-96')
+
+INSERT INTO branch_21053229 VALUES('VRCE', 'Nagpur')
+INSERT INTO branch_21053229 VALUES('AJNI', 'Nagpur')
+INSERT INTO branch_21053229 VALUES('KAROLBAGH', 'Delhi')
+INSERT INTO branch_21053229 VALUES('CHANDNI', 'Delhi')
+INSERT INTO branch_21053229 VALUES('MGroad', 'Bangalore')
+SELECT * FROM branch_21053229
+
+INSERT INTO customer_21053229 VALUES('Anil', 'Calcutta')
+INSERT INTO customer_21053229 VALUES('Sunil', 'Delhi')
+INSERT INTO customer_21053229 VALUES('Rahul', 'Baroda')
+INSERT INTO customer_21053229 VALUES('Madhuri', 'Nagpur')
+INSERT INTO customer_21053229 VALUES('Pramod', 'Nagpur')VF
+
+
+INSERT INTO borrow_21053229 VALUES('371', 'Pramod', 'VIHAR', 8000.00)
+INSERT INTO borrow_21053229 VALUES('321', 'Madhuri', 'ANDHERI', 2000.00)
+INSERT INTO borrow_21053229 VALUES('311', 'Sunil', 'DHARAMPETH', 3000.00)
+INSERT INTO borrow_21053229 VALUES('206', 'Rahul', 'AJNI', 5000.00)
+INSERT INTO borrow_21053229 VALUES('201', 'Anil', 'VRCE', 1000.00)
+
+ALTER TABLE deposit_21053229 MODIFY actno int;
+INSERT INTO deposit_21053229 VALUES(105, 'Adwaita', 'Ranchi', 6000.00, '04-15-2003') - cannot insert
+
+ALTER TABLE deposit_21053229 MODIFY actno int DEFAULT 0;
+INSERT INTO deposit_21053229(cname) VALUES('Adwaita')
+
+ALTER TABLE deposit_21053229 ADD CONSTRAINT chk_act CHECK(actno>=100);

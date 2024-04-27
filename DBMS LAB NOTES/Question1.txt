@@ -1,0 +1,27 @@
+DECLARE
+
+CURSOR CSR IS SELECT lastname, firstname, salary, hire_date FROM Employee3229 WHERE salary >= 50000 AND hire_date < to_date('31-12-1997','DD-MM-YYYY');
+lastname1 Employee3229.lastname%TYPE;
+firstname1 Employee3229.firstname%TYPE;
+salary1 Employee3229.salary%TYPE;
+hire_date1 Employee3229.hire_date%TYPE;
+
+BEGIN
+
+OPEN CSR;
+IF CSR %ISOPEN THEN
+LOOP 
+FETCH CSR INTO lastname1, firstname1, salary1, hire_date1;
+EXIT when CSR%NOTFOUND;
+DBMS_OUTPUT.PUT_LINE('Last Name: '|| lastname1) ;
+DBMS_OUTPUT.PUT_LINE('First Name: '|| firstname1) ;
+DBMS_OUTPUT.PUT_LINE('Salary : '|| salary1) ;
+DBMS_OUTPUT.PUT_LINE('Hire Date : '|| hire_date1) ;
+
+END LOOP;
+END IF;
+
+CLOSE CSR;
+
+END;
+/

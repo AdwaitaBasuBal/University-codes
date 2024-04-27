@@ -1,0 +1,76 @@
+INSERT INTO student VALUES(3229, 'Bal', 'Adwaita', 'Doranda', 'Ranchi', 'Jharkhand', 834002, '01-16-2023', '04-15-2003', 333, 'CSE', 8292315020)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+SELECT * FROM student
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO student(studentid, last, first) VALUES(3229, 'Bal', 'Adwaita')
+INSERT INTO student(studentid, last, first, street, state, zuo) VALUES(6500, 'Singh', 'Shaktija', 'Greens', 'WB', 8793445)
+INSERT INTO student(studentid, last, first, state) VALUES(3371, 'Agarwal', 'Nekhil','Bbsr')
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+SELECT studentid, first FROM student
+SELECT studentid, first FROM student WHERE state = 'Jharkhand'
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+SELECT studentid, first FROM student WHERE state = 'Jharkhand' AND first = 'Adwaita'
+SELECT studentid, first FROM student WHERE state = 'Jharkhand' OR first = 'Nekhil'
+SELECT studentid, first FROM student WHERE state = 'Jharkhand' AND first = 'Nekhil' ---- No data Found
+SELECT studentid, first FROM student WHERE state = 'Jharkhand' AND NOT first = 'Nekhil'
+SELECT studentid, first FROM student WHERE state = 'Jharkhand' AND first <> 'Nekhil'---- =/= is written <> for string
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE student SET studentid=0650
+WHERE studentid=3229
+UPDATE student SET studentid=4567, last='Afsheen', first='Zoyah'
+WHERE state='Bbsr'
+UPDATE student SET studentid=3419,  last='Padhy', first='Saswati'
+WHERE studentid=650
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+DELETE FROM student WHERE NOT state<>'Jharkhand' AND  state<>'Bbsr' AND state<>'WB'
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT COUNT(*) FROM student
+SELECT COUNT(birthdate) FROM student
+SELECT COUNT(state) FROM student
+SELECT COUNT(state) FROM student WHERE state = 'Odisha'
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT MAX(studentid) FROM student WHERE state = 'Odisha'
+SELECT MAX(studentid) FROM student
+SELECT MAX(zuo) FROM student
+SELECT MAX(birthdate) FROM student
+SELECT LAST,MAX(studentid) FROM student GROUP BY last
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT MIN(studentid) FROM student
+SELECT MIN(zuo) FROM student
+SELECT MIN(birthdate) FROM student
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT SUM(zuo) FROM student
+SELECT SUM(studentid) FROM student where state<>'Odisha'
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT AVG(studentid) FROM student where state<>'Odisha'
+SELECT AVG(zuo) FROM student where state<>'Odisha'
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT first,MAX(studentid) FROM student GROUP BY first
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+SELECT * FROM student order by studentid
+SELECT * FROM student order by studentid DESC
+SELECT * FROM student order by studentid ASC
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+RENAME student TO stu
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+TRUNCATE table stu ---- deletes rows of table
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+DROP table stu ---- remove the table from existence
+
+------------------------------------------------------------------------------------------------------------------------------------------------

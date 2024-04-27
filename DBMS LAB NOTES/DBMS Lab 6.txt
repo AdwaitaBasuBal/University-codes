@@ -1,0 +1,30 @@
+CREATE TABLE Student_info(roll int, name varchar2(20), phone int, constraint stinfo_pk primary key(roll));
+------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Student_marks(
+roll int,
+Sub1 varchar2(20),
+Sub2 varchar2(20),
+constraint stmarks_pk primary key(roll),
+constraint stmarks_fk foreign key(roll) REFERENCES Student_info(roll) ON DELETE CASCADE);
+-------------------------------------------------------------------------------------------------------------
+INSERT INTO Student_info(roll, name)  VALUES(108, 'BBB')
+-------------------------------------------------------------------------------------------------------------
+SELECT roll FROM Student_marks WHERE Sub1 + Sub2 >= 150
+----------------------------------------------------------------------------------------------------------------------
+SELECT * FROM Student_info WHERE roll IN (101, 102, 103);
+----------------------------------------------------------------------------------------------------------------
+SELECT * FROM Student_info WHERE roll BETWEEN 101  AND 103;
+----------------------------------------------------------------------------------------------------------------
+SELECT Student_info.name FROM Student_marks, Student_info 
+WHERE Student_info.roll = Student_marks.roll AND Student_marks.Sub1 + Student_marks.Sub2 >= 150
+
+SELECT name FROM  Student_info WHERE roll IN (SELECT roll from Student_marks WHERE Sub1 + Sub2 >= 150);
+--------------------------------------------------------------------------------------------------------------------
+SELECT name FROM  Student_info WHERE roll BETWEEN 101  AND 103;
+---------------------------------------------------------------------------------------------------------------
+SELECT * FROM (Student_info INNER JOIN Student_marks ON Student_info.roll = Student_marks.roll)
+-------------------------------------------------------------------------------------------------------------------
+SELECT * FROM (Student_info INNER JOIN Student_marks ON Student_info.roll = Student_marks.roll) 
+WHERE Student_marks.Sub1 + Student_marks.Sub2 >=150
+
+SELECT I.name FROM student_info I, student_marks M where I.roll = M.roll AND M.sub1 + M.sub2 >= 150;

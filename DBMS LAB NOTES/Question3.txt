@@ -1,0 +1,33 @@
+DECLARE
+firstname1 Employee3229.firstname%TYPE;
+salary1 Employee3229.salary%TYPE;
+hire_date1 Employee3229.hire_date%TYPE;
+
+BEGIN
+
+
+OPEN CSR;
+IF CSR %ISOPEN THEN
+LOOP 
+FETCH CSR INTO vrec;
+EXIT when CSR%NOTFOUND;
+IF salary1 > 50000
+THEN
+UPDATE Employee3229 SET salary=vrec.salary*1.10
+WHERE CURRENT OF CSR;
+ELSE
+UPDATE Employee3229 SET salary=vrec.salary*1.15
+WHERE CURRENT OF CSR;
+END IF;
+DBMS_OUTPUT.PUT_LINE('Last Name: '|| lastname1) ;
+DBMS_OUTPUT.PUT_LINE('First Name: '|| firstname1) ;
+DBMS_OUTPUT.PUT_LINE('Salary : '|| salary1) ;
+DBMS_OUTPUT.PUT_LINE('Hire Date : '|| hire_date1) ;
+
+END LOOP;
+END IF;
+
+CLOSE CSR;
+
+END;
+/
