@@ -1,0 +1,1 @@
+Total number of duplicate values= 5 & The most repeating element in the array = 7
